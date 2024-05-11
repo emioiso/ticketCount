@@ -9,11 +9,18 @@ import UIKit
 
 class ChargeViewController: UIViewController {
 
+    @IBOutlet weak var chargeLabel: UILabel!
+    
+    // チャージ額（または他の値）を保持する変数
+    var currentCharge: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // デフォルト値でラベルを初期化
+        chargeLabel.text = "\(currentCharge)"
     }
+    
     @IBAction func btnAction(sender: UIButton){
         print(sender.tag)
     }
