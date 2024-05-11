@@ -133,12 +133,20 @@
                                     <action selector="btnActionWithSender:" destination="fvn-dg-n5q" eventType="touchUpInside" id="MNd-0G-dTr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roh-kc-h4B">
+                                <rect key="frame" x="79" y="328" width="235" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cXd-Y8-adN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="chargeLabel" destination="yjp-SO-iuz" id="8OD-cQ-rIw"/>
+                        <outlet property="mistakePassword" destination="roh-kc-h4B" id="zyZ-ss-kqX"/>
                         <outlet property="textField" destination="F6O-Bl-W9T" id="qBg-IU-dUd"/>
                     </connections>
                 </viewController>

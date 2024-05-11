@@ -8,7 +8,9 @@
 import UIKit
 
 class ChargeViewController: UIViewController {
-
+    //パスワードを間違えた際に間違えてると出力する為のlabel
+    @IBOutlet weak var mistakePassword: UILabel!
+    
     @IBOutlet weak var chargeLabel: UILabel!
     //textFieldの
     @IBOutlet weak var textField: UITextField!
@@ -34,6 +36,11 @@ class ChargeViewController: UIViewController {
             if text == "amidayuiiyudana" {
                 //一致した場合にコンソールに出力
                 print("成功")
+            } else {
+                // テキストフィールドの文字列を消去する
+                textField.text = ""
+                mistakePassword.text = String("パスワードが間違っています")
+                print("不一致")
             }
         }
     }
