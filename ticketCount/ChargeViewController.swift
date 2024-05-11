@@ -26,7 +26,16 @@ class ChargeViewController: UIViewController {
     }
     
     @IBAction func btnAction(sender: UIButton){
+        //ボタンが動くかどうかコンソールで確認
         print(sender.tag)
+        // テキストフィールドの内容を取得
+        if let text = textField.text {
+            // 文字列が "amidayuiiyudana"と一致するか確認
+            if text == "amidayuiiyudana" {
+                //一致した場合にコンソールに出力
+                print("成功")
+            }
+        }
     }
     
 }
