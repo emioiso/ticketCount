@@ -139,6 +139,7 @@
                     </view>
                     <connections>
                         <outlet property="chargeLabel" destination="yjp-SO-iuz" id="8OD-cQ-rIw"/>
+                        <outlet property="textField" destination="F6O-Bl-W9T" id="qBg-IU-dUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzB-ua-ywm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
