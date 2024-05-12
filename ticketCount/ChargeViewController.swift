@@ -35,6 +35,16 @@ class ChargeViewController: UIViewController {
             print("成功")
             //一致した場合、"パスワードが間違っています"の出力を消す。
             mistakePassword.text = ""
+            /*
+            * chargeLabelに+10する。
+            * UILabelのインスタンスであり、そのテキストプロパティは文字列型です。整数値を加算したい場合は、
+            * まずcurrentCharge 変数に加算を行い、その結果を chargeLabel.text に文字列として設定する必要があります。
+            */
+            currentCharge += 10
+            chargeLabel.text = "\(currentCharge)"
+            // テキストフィールドの文字列を消去する
+            textField.text = ""
+            
         } else {
             // テキストフィールドの文字列を消去する
             textField.text = ""
