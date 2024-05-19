@@ -8,22 +8,36 @@
 import UIKit
 
 class UseViewController: UIViewController {
-
+    
+    @IBOutlet weak var useLabel: UILabel!
+    var minus = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // UserDefaultsから現在のチャージを取得して表示
+        if let currentCharge = UserDefaults.standard.value(forKey: "currentCharge") as? Int {
+            useLabel.text = "\(currentCharge)"
+        } else {
+            useLabel.text = "データなし"
+            print("No data found") // 追加
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func checkButton(_ sender: UIButton) {
+        //ボタンが動くかチェック
+        //動いた
+        print(sender.tag)
+        // minusフラグをtrueに設定
+        minus = true
+        
+        // UserDefaultsから現在のチャージを取得して、1を引いた値を設定
+        if let currentCharge = UserDefaults.standard.value(forKey: "currentCharge") as? Int {
+            let newCharge = currentCharge - 1
+            useLabel.text = "\(newCharge)"
+            // 新しいチャージをUserDefaultsに保存
+            UserDefaults.standard.set(newCharge, forKey: "currentCharge")
+        }
     }
-    */
-
 }

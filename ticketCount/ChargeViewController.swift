@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class ChargeViewController: UIViewController {
+    
     //パスワードを間違えた際に間違えてると出力する為のlabel
     @IBOutlet weak var mistakePassword: UILabel!
     @IBOutlet weak var chargeLabel: UILabel!
@@ -42,8 +44,11 @@ class ChargeViewController: UIViewController {
             */
             currentCharge += 10
             chargeLabel.text = "\(currentCharge)"
+            UserDefaults.standard.set(currentCharge, forKey: "currentCharge")
+            print("Current Charge Saved: \(currentCharge)") // 追加
             // テキストフィールドの文字列を消去する
             textField.text = ""
+            
             
         } else {
             // テキストフィールドの文字列を消去する
@@ -52,5 +57,17 @@ class ChargeViewController: UIViewController {
             print("不一致")
         }
     }
+    @IBAction func useTicketButtonTapped(_ sender: UIButton) {
+            // UseViewControllerに遷移するためのSegueを実行
+            performSegue(withIdentifier: "showUseViewController", sender: self)
+        }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showUseViewController" {
+                if segue.destination is UseViewController {
+                    // 必要に応じてデータを渡す
+                }
+            }
+        }
     
 }
