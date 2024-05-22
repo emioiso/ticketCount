@@ -20,9 +20,14 @@ class ChargeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // パスワード入力を黒丸で表示
         textField.isSecureTextEntry = true
+        // UserDefaultsから現在のチャージを取得して表示
+        if let savedCharge = UserDefaults.standard.value(forKey: "currentCharge") as? Int
+        {
+            currentCharge = savedCharge
+        }
                 
         // デフォルト値でラベルを初期化
         chargeLabel.text = "\(currentCharge)"
@@ -64,10 +69,16 @@ class ChargeViewController: UIViewController {
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showUseViewController" {
-                if segue.destination is UseViewController {
-                    // 必要に応じてデータを渡す
+                if let destinationVC = segue.destination as? UseViewController {
+                    destinationVC.newCharge = self.currentCharge
                 }
             }
         }
-    
+    @IBAction func unwindToChargeViewController(_ unwindSegue: UIStoryboardSegue) {
+        // UseViewControllerから戻ってきたときにUserDefaultsから最新の値を取得して表示する
+        if let savedCharge = UserDefaults.standard.value(forKey: "currentCharge") as? Int {
+            currentCharge = savedCharge
+            chargeLabel.text = "\(currentCharge)"
+        }
+    }
 }
